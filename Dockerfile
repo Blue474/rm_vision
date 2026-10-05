@@ -6,14 +6,14 @@ USER root
 RUN mkdir -p /ros_ws/src
 WORKDIR /ros_ws/
 
-# clone projects
-RUN cd src && git clone https://github.com/FaterYU/rm_auto_aim.git --depth=1 && \
-    git clone https://github.com/FaterYU/rm_buff.git --depth=1 && \
-    git clone https://github.com/FaterYU/ros2_hik_camera.git --depth=1 && \
-    git clone https://github.com/FaterYU/rm_gimbal_description.git --depth=1 && \
-    git clone https://github.com/FaterYU/rm_serial_driver.git --depth=1 && \
-    git clone https://github.com/FaterYU/rm_vision.git --depth=1 && \
-    git clone https://github.com/FaterYU/rm_auto_record.git --depth=1
+# clone projects (forked)
+RUN cd src && git https://github.com/Blue474/rm_auto_aim --depth=1 && \
+    git clone https://github.com/Blue474/rm_buff --depth=1 && \
+    git clone https://github.com/Blue474/ros2_hik_camera --depth=1 && \
+    git clone https://github.com/Blue474/rm_gimbal_description --depth=1 && \
+    git clone https://github.com/Blue474/rm_serial_driver --depth=1 && \
+    git clone https://github.com/Blue474/rm_vision --depth=1 && \
+    git clone https://github.com/Blue474/rm_auto_record --depth=1
 
 # install dependencies and some tools
 RUN apt-get update && rosdep install --from-paths src --ignore-src -r -y && \
