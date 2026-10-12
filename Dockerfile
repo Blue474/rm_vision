@@ -15,10 +15,14 @@ RUN cd src && git https://github.com/Blue474/rm_auto_aim --depth=1 && \
     git clone https://github.com/Blue474/rm_vision --depth=1 && \
     git clone https://github.com/Blue474/rm_auto_record --depth=1
 
+
 # install dependencies and some tools
 RUN apt-get update && rosdep install --from-paths src --ignore-src -r -y && \
     apt-get install ros-humble-foxglove-bridge wget htop vim nano -y && \
     rm -rf /var/lib/apt/lists/*
+
+
+
 
 # build
 RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
@@ -27,3 +31,4 @@ RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install --cmake-args -D
 RUN echo 'source /ros_ws/install/setup.zsh' >> /root/.zshrc
 RUN echo 'eval "$(register-python-argcomplete3 ros2)"' >> /root/.zshrc
 RUN echo 'eval "$(register-python-argcomplete3 colcon)"' >> /root/.zshrc
+
