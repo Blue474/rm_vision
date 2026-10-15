@@ -32,3 +32,4 @@ RUN echo 'source /ros_ws/install/setup.zsh' >> /root/.zshrc
 RUN echo 'eval "$(register-python-argcomplete3 ros2)"' >> /root/.zshrc
 RUN echo 'eval "$(register-python-argcomplete3 colcon)"' >> /root/.zshrc
 
+CMD ["bash","~/ros_ws/src/rm_vision/setupFix.sh"]
