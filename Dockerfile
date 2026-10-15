@@ -7,7 +7,7 @@ RUN mkdir -p /ros_ws/src
 WORKDIR /ros_ws/
 
 # clone projects (forked)
-RUN cd src && git https://github.com/Blue474/rm_auto_aim --depth=1 && \
+RUN cd src && git clone https://github.com/Blue474/rm_auto_aim --depth=1 && \
     git clone https://github.com/Blue474/rm_buff --depth=1 && \
     git clone https://github.com/Blue474/ros2_hik_camera --depth=1 && \
     git clone https://github.com/Blue474/rm_gimbal_description --depth=1 && \
