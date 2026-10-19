@@ -30,6 +30,16 @@ def generate_launch_description():
                    'buff_detector:='+launch_params['buff_detector_log_level']],
     )
 
+    fakecam = Node(
+            package='rv debug',
+            executable='fakecam',
+            emulate_tty=True,
+            output='both',
+            parameters=[node_params],
+            arguments=['--ros-args', '--log-level',
+                       'rv debug:='+launch_params['debug_log_level']],
+        )
+
     return LaunchDescription([
         robot_state_publisher,
         armor_detector_node,
