@@ -46,4 +46,3 @@ RUN echo 'eval "$(register-python-argcomplete3 colcon)"' >> /root/.zshrc
 
 CMD ["bash","~/ros_ws/src/rm_vision/setupFix.sh"]
 
-#test
