@@ -15,6 +15,11 @@ RUN cd src && git clone https://github.com/Blue474/rm_auto_aim --depth=1 && \
     git clone https://github.com/Blue474/rm_vision --depth=1 && \
     git clone https://github.com/Blue474/rm_auto_record --depth=1
 
+# Sketchy AI code that theoretically updates an APT key 
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc \
+    | gpg --dearmor -o /usr/share/keyrings/ros-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu jammy main" \
+    > /etc/apt/sources.list.d/ros2.list
 
 # install dependencies and some tools
 RUN apt-get update && rosdep install --from-paths src --ignore-src -r -y && \
