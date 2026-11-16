@@ -7,6 +7,6 @@ apt update
 apt install ros-humble-robot-state-publisher -y
 
 # source the files to bash
-echo "source /opt/ros/humble/setup.sh" >> ~/.bashrc
-echo "source /ros_ws/install/setup.sh" >> ~/.bashrc
-source ~/.bashrc
+#echo "source /opt/ros/humble/setup.sh" >> ~/.bashrc
+#echo "source /ros_ws/install/setup.sh" >> ~/.bashrc
+#source ~/.bashrc
