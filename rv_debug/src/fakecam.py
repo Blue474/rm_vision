@@ -13,6 +13,7 @@ class MinimalPublisher(Node):
     def __init__(self):
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(Image, 'image_raw', 10)
+        self.cap = cv2.VideoCapture("/ros_ws/TestData/spinning_and_moving_target.avi")
 
         fps = self.cap.get(cv2.CAP_PROP_FPS)
         fps = fps if fps > 0 else 30.0
@@ -20,7 +21,7 @@ class MinimalPublisher(Node):
 
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
-        self.cap = cv2.VideoCapture("/ros_ws/TestData/spinning_and_moving_target.avi")
+        
         self.bridge = CvBridge()
         if not self.cap.isOpened():
             print("Error: Could not open video file.")
