@@ -43,5 +43,6 @@ def generate_launch_description():
         armor_detector_node,
         buff_detector_node,
         armor_tracker_node,
-        buff_tracker_node
+        buff_tracker_node,
+        rv_debug_node
     ])
