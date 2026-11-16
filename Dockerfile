@@ -44,5 +44,13 @@ RUN echo 'source /ros_ws/install/setup.zsh' >> /root/.zshrc
 RUN echo 'eval "$(register-python-argcomplete3 ros2)"' >> /root/.zshrc
 RUN echo 'eval "$(register-python-argcomplete3 colcon)"' >> /root/.zshrc
 
-CMD ["bash","~/ros_ws/src/rm_vision/setupFix.sh"]
+RUN rm -f /etc/apt/sources.list.d/ros2-latest.list /etc/apt/sources.list.d/ros2.list && \
+    curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" > /etc/apt/sources.list.d/ros2.list && \
+    apt-get update && \
+    apt-get install -y ros-humble-robot-state-publisher && \
+    rm -rf /var/lib/apt/lists/*
+
+
+#CMD ["bash","/ros_ws/src/rm_vision/setupFix.sh"]
 
