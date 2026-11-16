@@ -7,7 +7,7 @@ RUN mkdir -p /ros_ws/src
 WORKDIR /ros_ws/
 
 # This should force the docker image to use the latest repo commit on Github. Dont touch.
-ARG CACHE_DATE=1
+ARG GITHUB_SHA
 
 # clone projects (forked)
 RUN cd src && git clone https://github.com/Blue474/rm_auto_aim --depth=1 && \
