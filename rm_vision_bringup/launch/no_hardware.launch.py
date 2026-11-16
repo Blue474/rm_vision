@@ -36,8 +36,6 @@ def generate_launch_description():
             emulate_tty=True,
             output='both',
             parameters=[node_params],
-            #arguments=['--ros-args', '--log-level',
-            #           'rv_debug:='+launch_params['debug_log_level']],
         )
 
     return LaunchDescription([
