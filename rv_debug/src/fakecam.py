@@ -62,7 +62,7 @@ class MinimalPublisher(Node):
 
         # all the camera calibration stuff is ai generated. I have no idea how lenses works lol
         info_msg.distortion_model = "plumb_bob"
-        info_msg.d = [0,0,0,0,0]# Empty distortion model
+        info_msg.d = [0.0,0.0,0.0,0.0,0.0]# Empty distortion model
         info_msg.r = [
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0,
