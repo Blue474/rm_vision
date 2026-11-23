@@ -32,7 +32,7 @@ def generate_launch_description():
 
     rv_debug_node = Node(
             package='rv_debug',
-            executable='fakecam',
+            executable='fakecam.py',
             emulate_tty=True,
             output='both',
             parameters=[node_params],
