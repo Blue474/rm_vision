@@ -12,6 +12,9 @@ from cv_bridge import CvBridge
 class MinimalPublisher(Node):
 
     def __init__(self):
+        if(True):
+            pass
+        
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(Image, 'image_raw', 10)
         self.cap = cv2.VideoCapture("/ros_ws/TestData/spinning_and_moving_target.avi")
